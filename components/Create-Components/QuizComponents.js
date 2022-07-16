@@ -23,6 +23,7 @@ function QuizComponents(props) {
                     </div>
                     <div className='flex my-6'>
                         <button className='px-3 py-2 '>Confirm Question</button>
+                        <button className='px-3 py-2 '>Complete</button>
                     </div>
                 </div>
             </div>

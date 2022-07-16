@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from "next/router"
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function AddQuestion() {
     const [previoudAddQuesionData, setprevioudAddQuestionData] = useState();
     const [callEff, setcallEff] = useState(true);
@@ -63,7 +66,16 @@ function AddQuestion() {
             setaddQuestionData({ multiCorrect: false, questionStatement: "", options: [], score: "", correct: "" })
         }
     }
+    const CompleteMakeQuiz = () => {
+        toast.success("Quiz created successfully", {
+            position: toast.POSITION.TOP_LEFT
+        })
+        setTimeout(() => {
+            router.push("/")
+        }, 2000);
+    }
     return <>
+        <ToastContainer />
         <div className=''>
             <div className='w-11/12 md:w-6/12 mx-auto  px-4 py-2 my-2'>
                 <div className='my-2'>
@@ -87,6 +99,8 @@ function AddQuestion() {
                     </div>
                     <div className='flex my-6'>
                         <button onClick={addQuestion} className='px-3 py-2 '>Confirm Question</button>
+
+                        <button onClick={CompleteMakeQuiz} className='px-3 py-2 '>Complete</button>
                     </div>
                 </div>
             </div>
