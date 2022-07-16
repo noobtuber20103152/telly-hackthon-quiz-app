@@ -34,6 +34,7 @@ function Signup() {
             }, 2000);
         }
         else if (data.status == 409) {
+
             toast.warn("Email already used", {
                 position: toast.POSITION.TOP_LEFT
             })
@@ -74,13 +75,13 @@ function Signup() {
                                     </span>
                                 </button>
                                 <p className="mt-6 text-sm text-gray-600 w-full text-center block">
-                                <Link href="/login">
-                                    <a className="border-b  border-gray-500 border-dotted blcok ml-5">
-                                        Already have an account ?
-                                    </a>
-                                </Link>
+                                    <Link href="/login">
+                                        <a className="border-b  border-gray-500 border-dotted blcok ml-5">
+                                            Already have an account ?
+                                        </a>
+                                    </Link>
                                 </p>
-                               
+
                             </div>
                         </div>
                     </div>

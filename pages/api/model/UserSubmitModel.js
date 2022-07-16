@@ -1,13 +1,10 @@
 const mongoose = require("mongoose")
-const CreateQuizSchema = mongoose.Schema({
+const UserSubmitSchema = mongoose.Schema({
     id: {
         type: String,
     },
-    startTime: {
-        type: String,
-    },
-    endTime: {
-        type: String,
+    code: {
+        type: Number,
     },
     duration: {
         type: Number,
@@ -26,5 +23,5 @@ const CreateQuizSchema = mongoose.Schema({
     }
 
 }, { timestamps: true })
-const CreateQuiz = mongoose.models.CreateQuiz || mongoose.model("CreateQuiz", CreateQuizSchema);
-module.exports = CreateQuiz;
+const UseSubmitModel = mongoose.models.UseSubmitModel || mongoose.model("UseSubmitModel", UserSubmitSchema);
+module.exports = UseSubmitModel;

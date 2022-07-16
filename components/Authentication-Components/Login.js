@@ -71,7 +71,7 @@ function Login() {
 
                                     <Link href="/signup">
                                         <a className="border-b text-sm border-gray-500 border-dotted">
-                                            Don't have any account ?
+                                            Don&apos;t have any account ?
                                         </a>
                                     </Link>
                                 </p>

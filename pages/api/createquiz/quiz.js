@@ -8,6 +8,6 @@ export default async function quiz(req, res) {
             req.body
         )
         let resdata = await saveQuiz.save();
-        res.json(resdata)
+        res.json({ status: 200, quizdata: resdata })
     }
 }
