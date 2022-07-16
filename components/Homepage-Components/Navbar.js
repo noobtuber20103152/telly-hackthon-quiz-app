@@ -41,6 +41,9 @@ function Navbar() {
                     {loggedInUser && loggedInUser.isLoggedIn && loggedInUser.AdminData && <Link href={`/profile/${loggedInUser.AdminData._id}`}>
                         <a className="mr-5 hover:text-gray-900">Profile</a>
                     </Link>}
+                    <Link href="/contact">
+                        <a className="mr-5 hover:text-gray-900">Contact us</a>
+                    </Link>
                 </nav>
                 {loggedInUser && !loggedInUser.isLoggedIn && <Link href="/signup">
                     <button className="inline-flex mx-2 marker: items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Sign up

@@ -102,7 +102,7 @@ function QuizPage() {
     }
     return <>
         {/* {GiveQuiz && <h1>{GiveQuiz}</h1>} */}
-        { QuestionData && count < QuestionData[0].questions.length &&
+        {QuestionData && QuestionData[0] && count < QuestionData[0].questions.length &&
             <div className=' my-5 mb-10'>
                 <div className='mx-auto md:w-7/12 w-11/12'>
                     <div className=''>
@@ -155,6 +155,15 @@ function QuizPage() {
                 </div>
             </div>
         </div>}
+        {!QuestionData &&
+            <div className=''>
+                <div className='md:w-7/12 w-11/12 mx-auto my-5'>
+                    <div className='bg-red-400 rounded-lg px-4 py-2'>
+                        <h1 className='text-2xl text-white'>OOPS! Quiz doesn't exist now.</h1>
+                    </div>
+                </div>
+            </div>
+        }
         {/* {!GiveQuiz &&
             <div className=''>
                 <div className='mx-auto md:w-7/12 w-11/12'>

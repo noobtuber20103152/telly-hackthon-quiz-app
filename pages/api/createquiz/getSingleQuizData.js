@@ -10,4 +10,5 @@ export default async function getsinglequizdata(req, res) {
         if (saveQuiz) res.json(saveQuiz)
         else res.json({ DataMessage: "No Data found" })
     }
-}
+} 
+ 

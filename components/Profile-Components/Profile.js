@@ -50,7 +50,7 @@ function Profile() {
             <div className="mx-2 my-4">
               <img
                 className="w-full h-32"
-                src="https://pixabay.com/get/ga71fd0f5dcd5082f9fcaf51c0d9a4ac19ff4c2aa36b9357c598a8d5524dbfb2a492ce54d3f359d8256ce58873b7f55db573f842350c733bddd788d2c78a23219_1280.jpg"
+                src="/assest/1.jpg"
                 alt=""
               />
             </div>
@@ -123,7 +123,6 @@ function Profile() {
             </>
           );
         })}
-      z
     </>
   );
 }

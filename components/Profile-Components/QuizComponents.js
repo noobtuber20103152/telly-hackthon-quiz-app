@@ -23,6 +23,15 @@ function QuizComponents(props) {
             setdisplay(false);
         }
     };
+    const getCode = (_id) => {
+        navigator.clipboard.writeText(_id).then(function () {
+            toast.success("Code copied successfully", {
+                position: toast.POSITION.TOP_LEFT
+            })
+        }, function (err) {
+            console.error('Async: Could not copy text: ', err);
+        });
+    }
     return (
         <>
             <ToastContainer />
@@ -34,7 +43,7 @@ function QuizComponents(props) {
                                 <img className="w-full h-32" src="https://pixabay.com/get/ ga71fd0f5dcd5082f9fcaf51c0d9a4ac19ff4c2aa36b9357c598a8d5524dbfb2a492ce54d3f359d8256ce58873b7f55db573f842350c733bddd788d2c78a23219_1280.jpg" alt="" />
                             </div>
                         </div>
-                        <div className="md:w-6/12 w-full ">
+                        <div className="md:w-5/12 w-full ">
                             <div className="mx-2 my-4">
                                 <div className="flex flex-col">
                                     <p className="text-green-400 text-lg mb-1">
@@ -55,18 +64,23 @@ function QuizComponents(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:w-3/12 w-full mx-auto my-auto  ">
+                        <div className="md:w-4/12 w-full mx-auto my-auto  ">
                             <Link href={`/${props._id}`}>
                                 <button className="px-3 py-2 mx-2 text-white bg-green-600">
                                     Analytics
                                 </button>
                             </Link>
-                            <button
-                                onClick={() => deleteItem(props._id)}
-                                className="px-3 py-2 mx-2 text-white bg-red-600"
-                            >
+                            <button onClick={() => deleteItem(props._id)} className="px-3 py-2 mx-2 text-white bg-red-600">
                                 Delete
                             </button>
+                            <button onClick={() => getCode(props._id)} className="px-3 py-2 mx-2 text-white bg-green-600">
+                                Get Code
+                            </button>
+                            {/* <Link href={`/quizpage/${props._id}`}>
+                                <button className="px-3 py-2 mx-2 text-white bg-green-600">
+                                    Go to quiz
+                                </button>
+                            </Link> */}
                         </div>
                     </div>
                 </div>

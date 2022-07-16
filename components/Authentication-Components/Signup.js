@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/router"
 import Link from 'next/link';
+var validator = require("email-validator");
 function Signup() {
     const router = useRouter();
     const [SignUpData, setSignUpData] = useState({ name: "", email: "", password: "", phone: "" })
@@ -13,6 +14,13 @@ function Signup() {
     const SubmitSignUpData = async () => {
         if (SignUpData.name.length == 0 || SignUpData.email.length == 0 || SignUpData.password.length == 0 || SignUpData.phone.length == 0) {
             toast.warn("Please check form should be fulfill", {
+                position: toast.POSITION.TOP_LEFT
+            })
+            return;
+        }
+        let validEmail = validator.validate(SignUpData.email)
+        if (validEmail == false) {
+            toast.warn("Please enter a valid email", {
                 position: toast.POSITION.TOP_LEFT
             })
             return;
