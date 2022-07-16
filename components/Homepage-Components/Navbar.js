@@ -38,7 +38,7 @@ function Navbar() {
                     <Link href="/">
                         <a className="mr-5 hover:text-gray-900">Home</a>
                     </Link>
-                    {loggedInUser && loggedInUser.isLoggedIn && <Link href={`/profile/${loggedInUser.AdminData._id}`}>
+                    {loggedInUser && loggedInUser.isLoggedIn && loggedInUser.AdminData && <Link href={`/profile/${loggedInUser.AdminData._id}`}>
                         <a className="mr-5 hover:text-gray-900">Profile</a>
                     </Link>}
                 </nav>
