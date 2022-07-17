@@ -10,6 +10,7 @@ function QuizPage() {
     const [QuestionData, setQuestionData] = useState();
     const [UserSubmitQuizData, setUserSubmitQuizData] = useState();
     const [callEff, setcallEff] = useState(true)
+    const [username, setusername] = useState();
     useEffect(() => {
         async function getData() {
             let data = await fetch("/api/createquiz/getSingleQuizData", {
@@ -83,7 +84,10 @@ function QuizPage() {
         console.log(UserSubmitQuizData[0].questions[count].correct)
     }
     const submitUserData = async () => {
-
+        let username = prompt("Enter your name");
+        UserSubmitQuizData[0].username = username;
+        console.log(UserSubmitQuizData);
+        // return ;
         console.log(QuestionData[0]._id)
         UserSubmitQuizData = UserSubmitQuizData[0];
         UserSubmitQuizData.id = QuestionData[0]._id;
@@ -97,7 +101,7 @@ function QuizPage() {
         })
         data = await data.json();
         console.log(data);
-        setQuestionData(null)
+        // setQuestionData(null)
         setsubmitSuccessTest(true)
     }
     return <>
@@ -136,11 +140,10 @@ function QuizPage() {
                     </div>
                     {count < QuestionData[0].questions.length && <button onClick={() => setcount(count - 1)} className='px-3 py-2'>Previous Question</button>}
                     {count < QuestionData[0].questions.length && <button onClick={nextQuestion} className='px-3 py-2'>Next Question</button>}
-
                 </div>
             </div>
         }
-        {QuestionData && count >= QuestionData[0].questions.length &&
+        {!submitSuccessTest && QuestionData && count >= QuestionData[0].questions.length &&
             <div className='my-6'>
                 <div className='md:w-7/12 w-11/12 mx-auto'>
                     <button onClick={() => setcount(count - 1)} className='px-3 py-2'>Previous Question</button>
@@ -155,14 +158,14 @@ function QuizPage() {
                 </div>
             </div>
         </div>}
-        {!QuestionData &&
-            <div className=''>
-                <div className='md:w-7/12 w-11/12 mx-auto my-5'>
-                    <div className='bg-red-400 rounded-lg px-4 py-2'>
-                        <h1 className='text-2xl text-white'>OOPS! Quiz doesn't exist now.</h1>
-                    </div>
+        {QuestionData && QuestionData.length == 0 && !submitSuccessTest && <div className=''>
+            <div className='md:w-7/12 w-11/12 mx-auto my-5'>
+                <div className='bg-red-400 rounded-lg px-4 py-2'>
+                    <h1 className='text-2xl text-white'>OOPS! Quiz doesn't exist now.</h1>
                 </div>
             </div>
+        </div>
+
         }
         {/* {!GiveQuiz &&
             <div className=''>

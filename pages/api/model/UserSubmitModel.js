@@ -6,6 +6,9 @@ const UserSubmitSchema = mongoose.Schema({
     code: {
         type: Number,
     },
+    username: {
+        type: String
+    },
     duration: {
         type: Number,
     },
@@ -23,5 +26,5 @@ const UserSubmitSchema = mongoose.Schema({
     }
 
 }, { timestamps: true })
-const UseSubmitModel = mongoose.models.UseSubmitModel || mongoose.model("UseSubmitModel", UserSubmitSchema);
-module.exports = UseSubmitModel;
+const UserSubmitModel = mongoose.models.UseSubmitModel || mongoose.model("UserSubmitModel", UserSubmitSchema);
+module.exports = UserSubmitModel;

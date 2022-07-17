@@ -65,7 +65,7 @@ function QuizComponents(props) {
                             </div>
                         </div>
                         <div className="md:w-4/12 w-full mx-auto my-auto  ">
-                            <Link href={`/${props._id}`}>
+                            <Link href={`/leaderboard/${props._id}`}>
                                 <button className="px-3 py-2 mx-2 text-white bg-green-600">
                                     Analytics
                                 </button>
