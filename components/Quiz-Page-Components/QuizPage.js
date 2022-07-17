@@ -7,10 +7,10 @@ function QuizPage() {
     const [submitSuccessTest, setsubmitSuccessTest] = useState(false);
     const { slug } = router.query;
     const [QuestionData, setQuestionData] = useState();
+    const [count, setcount] = useState(0);
     const [UserSubmitQuizData, setUserSubmitQuizData] = useState();
     const [callEff, setcallEff] = useState(true)
     const [username, setusername] = useState();
-    let count = 0;
     useEffect(() => {
         async function getData() {
             let data = await fetch("/api/createquiz/getSingleQuizData", {
