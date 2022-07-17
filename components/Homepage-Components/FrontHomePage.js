@@ -34,7 +34,7 @@ function FrontHomePage() {
         <ToastContainer />
         <section className="text-gray-600 body-font">
             <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-                <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                <div className="lg:flex-grow md:w-1/2 ml-0 md:ml-8 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
                     <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Welcom to Quizzly
                     </h1>
                     <p className="mb-8 leading-relaxed">Our mission is to create a user friendly quizz webapp where quiz admin could easily register and prepare a quiz . And using it's unique quiz code anyone in the world who is eligible to give that quiz could take up that quiz.</p>
