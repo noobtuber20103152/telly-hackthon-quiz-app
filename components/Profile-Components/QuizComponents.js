@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function QuizComponents(props) {
+
     const [display, setdisplay] = useState(true);
     const deleteItem = async (_id) => {
         console.log(_id);
@@ -65,11 +66,11 @@ function QuizComponents(props) {
                             </div>
                         </div>
                         <div className="md:w-4/12 w-full mx-auto my-auto  ">
-                            <Link href={`/leaderboard/${props._id}`}>
+                            {/* <Link href={`/leaderboard/${props._id}`}>
                                 <button className="px-3 py-2 mx-2 text-white bg-green-600">
                                     Analytics
                                 </button>
-                            </Link>
+                            </Link> */}
                             <button onClick={() => deleteItem(props._id)} className="px-3 py-2 mx-2 text-white bg-red-600">
                                 Delete
                             </button>

@@ -3,14 +3,14 @@ import { useRouter } from "next/router"
 import QuizQuestionComponent from './QuizQuestionComponent';
 function QuizPage() {
     const router = useRouter();
-    // const [GiveQuiz, setGiveQuiz] = useState(true)
+    const [GiveQuiz, setGiveQuiz] = useState(true)
     const [submitSuccessTest, setsubmitSuccessTest] = useState(false);
     const { slug } = router.query;
-    const [count, setcount] = useState(0);
     const [QuestionData, setQuestionData] = useState();
     const [UserSubmitQuizData, setUserSubmitQuizData] = useState();
     const [callEff, setcallEff] = useState(true)
     const [username, setusername] = useState();
+    let count = 0;
     useEffect(() => {
         async function getData() {
             let data = await fetch("/api/createquiz/getSingleQuizData", {
@@ -42,9 +42,9 @@ function QuizPage() {
             console.log(currentDate);
             console.log(endTime);
             let yes = (startTime < currentDate) && (endTime > currentDate);
-            // setGiveQuiz(yes);
-            // setGiveQuiz((QuestionData[0].startTime < currentDate) && (QuestionData[0].endTime > currentDate))
-            // console.log(GiveQuiz)
+            setGiveQuiz(yes);
+            setGiveQuiz((QuestionData[0].startTime < currentDate) && (QuestionData[0].endTime > currentDate))
+            console.log(GiveQuiz)
         }
     }, [callEff])
     const [chooseOption, setchooseOption] = useState({ option1: false, option2: false, option3: false, option4: false });
@@ -138,7 +138,7 @@ function QuizPage() {
                             </label>
                         </div>
                     </div>
-                    {count < QuestionData[0].questions.length && <button onClick={() => setcount(count - 1)} className='px-3 py-2'>Previous Question</button>}
+                    {count < QuestionData[0].questions.length && <button onClick={() => setcount(count - 1)} disabled={count == 0} className='px-3 py-2'>Previous Question</button>}
                     {count < QuestionData[0].questions.length && <button onClick={nextQuestion} className='px-3 py-2'>Next Question</button>}
                 </div>
             </div>
@@ -151,6 +151,10 @@ function QuizPage() {
                 </div>
             </div>
         }
+        {/* {QuestionData && setTimeout(() => {
+            window.alert("Time's up")
+            router.push("/")
+        }, QuestionData[0].duration * 60 * 1000)} */}
         {submitSuccessTest && <div className=''>
             <div className='mx-auto md:w-7/12 w-11/12'>
                 <div className='bg-green-700 py-4 px-3 rounded-lg'>
@@ -167,14 +171,14 @@ function QuizPage() {
         </div>
 
         }
-        {/* {!GiveQuiz &&
+        {!GiveQuiz &&
             <div className=''>
                 <div className='mx-auto md:w-7/12 w-11/12'>
                     <div className='bg-red-700 py-4 px-3 rounded-lg'>
                         <h1 className='text-white'>Quiz was ended</h1>
                     </div>
                 </div>
-            </div>} */}
+            </div>}
     </>
 }
 
