@@ -161,7 +161,7 @@ function QuizPage() {
         {QuestionData && QuestionData.length == 0 && !submitSuccessTest && <div className=''>
             <div className='md:w-7/12 w-11/12 mx-auto my-5'>
                 <div className='bg-red-400 rounded-lg px-4 py-2'>
-                    <h1 className='text-2xl text-white'>OOPS! Quiz doesn't exist now.</h1>
+                    <h1 className='text-2xl text-white'>OOPS! Quiz doesn&lsquo;t exist now.</h1>
                 </div>
             </div>
         </div>
